@@ -59,6 +59,31 @@ module.exports = App;
 ```
 Here, when we define the App component, we nest inside it our Navbar component, and {this.props.children}.
 
+The Navbar is where we provide the links to our other components, using React Router's Link Component:
+``` js
+var React  = require('react');
+var routerModule = require('react-router');
+var Link = routerModule.Link;
+
+var Navbar = React.createClass({
+  render: function() {
+    return (
+      <nav>
+        <ul>
+          <Link to="/home"><li>Home</li></Link>
+          <Link to="/breakfast"><li>Breakfast</li></Link>
+          <Link to="/lunch"><li>Lunch</li></Link>
+          <Link to="/dinner"><li>Dinner</li></Link>
+        </ul>
+      </nav>
+    );
+  }
+});
+
+module.exports = Navbar;
+```
+The Link component will render an anchor tag with the relevant href.
+
 {this.props.children}, when using React Router, will refer to whichever component is currently active. That is, which component's path matches the current URL. We'll see exactly what this means by looking further into _routes.js_:
 ``` html
 var Redirect = routerModule.Redirect;
@@ -81,9 +106,17 @@ So from this, we can see that if the URL ends with "/breakfast", {this.props.chi
 
 We can also see that we have a Redirect component. This redirects the path to "/home" when the URL is just "/", meaning the Home component is the default.
 
-Another interesting thing to note is that the active component automatically has a className of "active" added to it, so you can easily style an active component differently if you wish:
+Another interesting thing to note is that the Link that leads to the active component automatically has a className of "active" added to it, so you can easily style it differently if you wish:
 ``` css
 .active li{
   color: steelblue;
 }
 ```
+Next we'll look at some nested routes. Back to _routes.js_:
+``` html
+<Route path='breakfast' component={Breakfast}>
+  <Route path='drinks' component={BreakfastDrinks} />
+  <Route path='food' component={BreakfastFood} />
+</Route>
+```
+Now the router will automatically resolve the urls, so if you go to '/breakfast/drinks' the BreakfastDrinks component will become active.
