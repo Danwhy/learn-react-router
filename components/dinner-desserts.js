@@ -5,8 +5,8 @@ var DinnerDesserts = React.createClass({
     return (
       <div className="menu">
         <ul>
-          <li>Ice Cream</li>
-          <li>Apple Pie</li>
+          <li>Ice Cream<span className="price">£3.00</span></li>
+          <li>Apple Pie<span className="price">£4.00</span></li>
         </ul>
       </div>
     );

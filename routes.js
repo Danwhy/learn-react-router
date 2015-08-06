@@ -1,9 +1,11 @@
 var React  = require('react');
 var routerModule = require('react-router');
+var history = require("react-router/lib/HashHistory").history;
+
 var Router = routerModule.Router;
 var Route = routerModule.Route;
 var Redirect = routerModule.Redirect;
-var history = require("react-router/lib/HashHistory").history;
+
 var App = require('./components/app.js');
 var Breakfast = require('./components/breakfast.js');
 var Lunch = require('./components/lunch.js');
@@ -23,17 +25,17 @@ module.exports = (
       <Redirect from='/' to='/home' />
       <Route path='home' component={Home} />
       <Route path='breakfast' component={Breakfast}>
-        <Route path='drinks' component={BreakfastDrinks}/>
-        <Route path='food' component={BreakfastFood}/>
+        <Route path='drinks' component={BreakfastDrinks} />
+        <Route path='food' component={BreakfastFood} />
       </Route>
       <Route path='lunch' component={Lunch}>
-        <Route path='drinks' component={LunchDrinks}/>
-        <Route path='food' component={LunchFood}/>
+        <Route path='drinks' component={LunchDrinks} />
+        <Route path='food' component={LunchFood} />
       </Route>
       <Route path='dinner' component={Dinner}>
-        <Route path='drinks' component={DinnerDrinks}/>
-        <Route path='mains' component={DinnerMains}/>
-        <Route path='desserts' component={DinnerDesserts}/>
+        <Route path='drinks' component={DinnerDrinks} />
+        <Route path='mains' component={DinnerMains} />
+        <Route path='desserts' component={DinnerDesserts} />
       </Route>
     </Route>
   </Router>

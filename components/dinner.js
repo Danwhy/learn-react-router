@@ -4,7 +4,7 @@ var Menus = require('./menus.js');
 var Dinner = React.createClass({
   render: function() {
     return (
-      <div className="menu">
+      <div>
         <Menus items={[{path:'/dinner/drinks', name:'Drinks'}, {path:'/dinner/mains', name:'Mains'}, {path:'/dinner/desserts', name:'Desserts'}]}/>
         {this.props.children}
       </div>
