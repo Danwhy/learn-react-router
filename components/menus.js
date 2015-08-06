@@ -10,9 +10,11 @@ var Menus = React.createClass({
       );
     });
     return (
-      <ul>
-        {items}
-      </ul>
+      <div className="menuChoice">
+        <ul>
+          {items}
+        </ul>
+      </div>
     );
   }
 });

@@ -1,8 +1,37 @@
+body {
+  background-color: linen;
+  font-family: Helvetica;
+  color: darkslategrey;
+}
+
+.app {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: lightyellow;
+    height: 100vh;
+}
+
 a {
   text-decoration: none;
-  color: black;
+  color: darkslategrey;
+}
+
+li {
+  list-style: none;
 }
 
 .active li{
-  color: blue;
+  color: steelblue;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menuChoice ul li {
+  display: inline-block;
+  margin-right: 10px;
 }
